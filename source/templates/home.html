@@ -3,9 +3,14 @@
   <title>Source as Producer</title>
 </head>
 <body>
-  <button id="btn1">Button 1</button>
-  <button id="btn2">Button 2</button>
-  <button id="btn3">Button 3</button>
+  <div>
+    <button id="btn1">Button 1</button>
+    <button id="btn2">Button 2</button>
+    <button id="btn3">Button 3</button>
+  </div>
+  <div style="margin-top: 10px;">
+    <input id="mytext" type="text"> <button id="btn-submit">Submit</button>
+  </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script>
     $("#btn1").click(() => {
@@ -16,6 +21,14 @@
     })
     $("#btn3").click(() => {
       send('msg 3')
+    })
+    $("#btn-submit").click(() => {
+      const val = $("input#mytext").val()
+      if (val !== "") {
+        send(val)
+      } else {
+        alert('Please enter some text')
+      }
     })
 
     const send = message => {
