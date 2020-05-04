@@ -19,8 +19,8 @@
     })
 
     const send = message => {
-      $.post('/trigger', { message })
-        .done(() => { console.log(`Message "${message}" is sent!`) })
+      $.post('/trigger', { message },
+        () => { console.log(`Message "${message}" is sent!`) })
     }
   </script>
 </body>

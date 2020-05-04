@@ -13,6 +13,10 @@ def home():
 def trigger():
     message = request.form.get('message')
     print(f'Received message "{message}"')
+
+    # Write Kafka consumer here
+    # ...
+
     return '', 200
 
 
