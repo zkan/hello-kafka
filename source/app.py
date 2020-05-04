@@ -14,7 +14,7 @@ def trigger():
     message = request.form.get('message')
     print(f'Received message "{message}"')
 
-    # Write Kafka consumer here
+    # Write Kafka producer here
     # ...
 
     return '', 200
