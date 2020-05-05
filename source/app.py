@@ -1,7 +1,14 @@
 from flask import Flask, render_template, request
 
+from confluent_kafka import Producer
+
 
 app = Flask(__name__)
+
+
+p = Producer({
+    'bootstrap.servers': 'localhost:9092'
+})
 
 
 @app.route('/')
@@ -14,8 +21,8 @@ def trigger():
     message = request.form.get('message')
     print(f'Received message "{message}"')
 
-    # Write your Kafka producer here
-    # ...
+    p.produce('mytopic', message)
+    p.flush()
 
     return '', 200
 
